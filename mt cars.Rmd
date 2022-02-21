@@ -1,0 +1,56 @@
+---
+title: "MTCARS"
+author: "Mark Menghini"
+date: "2/21/2022"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Cars Summary
+
+```{r mtcars 1}
+summary(mtcars)
+mtcars
+```
+
+## Four Cylinders
+
+```{r mtcars 2}
+summary(as.factor(mtcars$cyl))
+cylinder4<- mtcars[,2, drop=FALSE]
+four_cyl<- subset(cylinder4, cyl == 4)
+four_cyl
+```
+
+## Six Cylinders
+```{r mtcars 3}
+summary(as.factor(mtcars$cyl))
+cylinder6<- mtcars[,2, drop=FALSE]
+six_cyl<- subset(cylinder6, cyl ==6)
+six_cyl
+```
+
+##Gas Milage vs Engine Displacement Four Cylinder
+
+```{r mtcars 4}
+mpg_fourcyl<- mtcars[ c(1:3)]
+four_cyl1<- subset(mpg_fourcyl, cyl == 4)
+mpg1 <- four_cyl1$mpg
+disp1 <- four_cyl1$disp
+plot(mpg1, disp1)
+```
+
+##Gas Milage vs Engine Displacement Six Cylinder
+
+```{r mtcars 5}
+mpg_sixcyl<- mtcars[ c(1:3)]
+six_cyl1<- subset(mpg_sixcyl, cyl == 6)
+mpg2 <- six_cyl1$mpg
+disp2 <- six_cyl1$disp
+plot(mpg2, disp2)
+```
